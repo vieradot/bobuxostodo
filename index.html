@@ -430,6 +430,10 @@ select {
 
     <button class="filter" data-filter="watch">
       ver
+    </button>    
+    
+    <button class="filter" data-filter="travel">
+      viagem
     </button>
 
   </div>
@@ -485,7 +489,11 @@ select {
         <option value="date">
           IR FAZER
         </option>
-
+        
+        <option value="travel">
+          VIAGEM
+        </option>
+        
         <option value="buy">
           COMPRAR
         </option>
@@ -776,7 +784,9 @@ function render() {
 
           watch: "ver",
 
-          life: "comida"
+          life: "comida",
+
+          travel: "viagem:"
 
         }[task.category]
         || "comida";
