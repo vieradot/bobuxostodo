@@ -3,376 +3,366 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>to-do dos bobuxos</title>
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Libre+Baskerville:ital,wght@0,400;1,400&display=swap');
 
 :root {
-  --paper:#e9e5dc;
-  --ink:#191916;
-  --muted:#77736a;
-  --line:#bdb9af;
-  --red:#8d3029;
-  --white:#f5f2eb;
+  --paper: #e9e5dc;
+  --ink: #191916;
+  --muted: #77736a;
+  --line: #bdb9af;
+  --red: #8d3029;
+  --white: #f5f2eb;
 }
 
-* { box-sizing:border-box; }
+* {
+  box-sizing: border-box;
+}
 
 body {
-  margin:0;
-  background:var(--paper);
-  color:var(--ink);
-  font-family:"DM Mono", monospace;
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "DM Mono", monospace;
 }
 
 main {
-  width:min(1000px, calc(100% - 32px));
-  margin:auto;
-  padding:45px 0 70px;
+  width: min(1000px, calc(100% - 32px));
+  margin: auto;
+  padding: 45px 0 70px;
 }
+
+/* HEADER */
 
 header {
-  border-top:1px solid var(--ink);
-  border-bottom:1px solid var(--ink);
-  padding:18px 0 22px;
-  display:flex;
-  justify-content:space-between;
-  align-items:end;
-  gap:20px;
-}
-
-.kicker {
-  color:var(--muted);
-  font-size:9px;
-  letter-spacing:.14em;
-  text-transform:uppercase;
-  margin-bottom:13px;
+  border-top: 1px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+  padding: 22px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 20px;
 }
 
 h1 {
-  font-family:"Libre Baskerville", serif;
-  font-weight:400;
-  font-size:clamp(40px,7vw,70px);
-  letter-spacing:-.055em;
-  line-height:.95;
-  margin:0;
+  font-family: "Libre Baskerville", serif;
+  font-weight: 400;
+  font-size: clamp(40px, 7vw, 70px);
+  letter-spacing: -0.055em;
+  line-height: .95;
+  margin: 0;
 }
 
 h1 em {
-  color:var(--red);
+  color: var(--red);
 }
 
 .header-date {
-  color:var(--muted);
-  font-size:9px;
-  line-height:1.7;
-  text-align:right;
+  color: var(--muted);
+  font-size: 9px;
+  line-height: 1.7;
+  text-align: right;
 }
 
+/* INTRO */
+
 .intro {
-  padding:24px 0 32px;
-  border-bottom:1px solid var(--line);
-  display:flex;
-  justify-content:space-between;
-  gap:30px;
+  padding: 24px 0 32px;
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
 }
 
 .intro p {
-  font-family:"Libre Baskerville",serif;
-  font-style:italic;
-  line-height:1.7;
-  font-size:14px;
-  max-width:520px;
-  margin:0;
+  font-family: "Libre Baskerville", serif;
+  font-style: italic;
+  line-height: 1.7;
+  font-size: 14px;
+  max-width: 520px;
+  margin: 0;
 }
 
 .stats {
-  display:flex;
-  gap:28px;
-  align-items:end;
+  display: flex;
+  gap: 28px;
+  align-items: end;
 }
 
 .stat strong {
-  display:block;
-  font-family:"Libre Baskerville",serif;
-  font-weight:400;
-  font-size:27px;
+  display: block;
+  font-family: "Libre Baskerville", serif;
+  font-weight: 400;
+  font-size: 27px;
 }
 
 .stat span {
-  color:var(--muted);
-  font-size:8px;
-  text-transform:uppercase;
-  letter-spacing:.08em;
+  color: var(--muted);
+  font-size: 8px;
+  text-transform: uppercase;
+  letter-spacing: .08em;
 }
 
-.progress {
-  padding:20px 0;
-}
-
-.progress-top {
-  display:flex;
-  justify-content:space-between;
-  color:var(--muted);
-  font-size:8px;
-  margin-bottom:7px;
-  text-transform:uppercase;
-}
-
-.progress-line {
-  height:2px;
-  background:var(--line);
-}
-
-.progress-fill {
-  height:100%;
-  background:var(--red);
-  width:0%;
-  transition:.4s;
-}
+/* TOOLBAR */
 
 .toolbar {
-  border-top:1px solid var(--line);
-  border-bottom:1px solid var(--line);
-  padding:12px 0;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:15px;
+  border-bottom: 1px solid var(--line);
+  padding: 15px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
 }
 
 .filters {
-  display:flex;
-  flex-wrap:wrap;
-  gap:4px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
 }
 
 .filter {
-  font:inherit;
-  font-size:9px;
-  padding:7px 9px;
-  background:transparent;
-  border:1px solid transparent;
-  color:var(--muted);
-  cursor:pointer;
+  font: inherit;
+  font-size: 9px;
+  padding: 7px 9px;
+  background: transparent;
+  border: 1px solid transparent;
+  color: var(--muted);
+  cursor: pointer;
 }
 
 .filter:hover,
 .filter.active {
-  border-color:var(--ink);
-  color:var(--ink);
+  border-color: var(--ink);
+  color: var(--ink);
 }
 
 .add {
-  background:var(--ink);
-  color:var(--paper);
-  border:1px solid var(--ink);
-  font:inherit;
-  font-size:9px;
-  padding:10px 14px;
-  cursor:pointer;
+  background: var(--ink);
+  color: var(--paper);
+  border: 1px solid var(--ink);
+  font: inherit;
+  font-size: 9px;
+  padding: 10px 14px;
+  cursor: pointer;
 }
 
 .add:hover {
-  background:var(--red);
-  border-color:var(--red);
+  background: var(--red);
+  border-color: var(--red);
 }
 
+/* TASKS */
+
 .task {
-  display:grid;
-  grid-template-columns:25px 1fr auto;
-  gap:14px;
-  align-items:center;
-  min-height:75px;
-  border-bottom:1px solid var(--line);
+  display: grid;
+  grid-template-columns: 25px 1fr auto;
+  gap: 14px;
+  align-items: center;
+  min-height: 75px;
+  border-bottom: 1px solid var(--line);
+  transition: background .15s, padding .15s;
 }
 
 .task:hover {
-  background:rgba(255,255,255,.15);
+  background: rgba(255,255,255,.15);
+  padding-left: 5px;
 }
 
 .checkbox {
-  width:18px;
-  height:18px;
-  border:1px solid var(--ink);
-  background:transparent;
-  cursor:pointer;
+  width: 18px;
+  height: 18px;
+  border: 1px solid var(--ink);
+  background: transparent;
+  cursor: pointer;
+  position: relative;
 }
 
 .task.done .checkbox {
-  background:var(--red);
-  border-color:var(--red);
-  position:relative;
+  background: var(--red);
+  border-color: var(--red);
 }
 
-.task.done .checkbox:after {
-  content:"×";
-  color:white;
-  position:absolute;
-  left:4px;
-  top:-2px;
+.task.done .checkbox::after {
+  content: "×";
+  color: white;
+  position: absolute;
+  left: 4px;
+  top: -2px;
 }
 
 .task-title {
-  font-family:"Libre Baskerville",serif;
-  font-size:14px;
+  font-family: "Libre Baskerville", serif;
+  font-size: 14px;
 }
 
 .task.done .task-title {
-  color:var(--muted);
-  text-decoration:line-through;
+  color: var(--muted);
+  text-decoration: line-through;
 }
 
 .meta {
-  display:flex;
-  gap:12px;
-  margin-top:6px;
-  color:var(--muted);
-  font-size:8px;
-  text-transform:uppercase;
+  display: flex;
+  gap: 12px;
+  margin-top: 6px;
+  color: var(--muted);
+  font-size: 8px;
+  text-transform: uppercase;
 }
 
 .meta .category {
-  color:var(--red);
+  color: var(--red);
 }
 
 .actions {
-  display:flex;
-  gap:5px;
+  display: flex;
+  gap: 5px;
 }
 
 .small-btn {
-  border:0;
-  background:transparent;
-  color:var(--muted);
-  font:inherit;
-  font-size:13px;
-  cursor:pointer;
+  border: 0;
+  background: transparent;
+  color: var(--muted);
+  font: inherit;
+  font-size: 13px;
+  cursor: pointer;
 }
 
 .small-btn:hover {
-  color:var(--ink);
+  color: var(--ink);
 }
 
 .empty {
-  text-align:center;
-  padding:55px 0;
-  color:var(--muted);
-  font-family:"Libre Baskerville",serif;
-  font-style:italic;
+  text-align: center;
+  padding: 55px 0;
+  color: var(--muted);
+  font-family: "Libre Baskerville", serif;
+  font-style: italic;
 }
 
+.loading {
+  padding: 35px 0;
+  color: var(--muted);
+  font-size: 9px;
+}
+
+/* MODAL */
+
 .modal-bg {
-  display:none;
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.4);
-  z-index:10;
-  align-items:center;
-  justify-content:center;
-  padding:20px;
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.4);
+  z-index: 10;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
 }
 
 .modal-bg.open {
-  display:flex;
+  display: flex;
 }
 
 .modal {
-  width:min(470px,100%);
-  background:var(--white);
-  border:1px solid var(--ink);
-  padding:27px;
+  width: min(470px, 100%);
+  background: var(--white);
+  border: 1px solid var(--ink);
+  padding: 27px;
 }
 
 .modal h2 {
-  font-family:"Libre Baskerville",serif;
-  font-weight:400;
-  margin:0 0 24px;
+  font-family: "Libre Baskerville", serif;
+  font-weight: 400;
+  margin: 0 0 24px;
 }
 
 .field {
-  margin-bottom:17px;
+  margin-bottom: 17px;
 }
 
 label {
-  display:block;
-  color:var(--muted);
-  font-size:8px;
-  text-transform:uppercase;
-  letter-spacing:.08em;
-  margin-bottom:6px;
+  display: block;
+  color: var(--muted);
+  font-size: 8px;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  margin-bottom: 6px;
 }
 
-input, select {
-  width:100%;
-  background:transparent;
-  border:0;
-  border-bottom:1px solid var(--ink);
-  padding:9px 2px;
-  font:13px "Libre Baskerville",serif;
-  outline:none;
+input,
+select {
+  width: 100%;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--ink);
+  padding: 9px 2px;
+  font: 13px "Libre Baskerville", serif;
+  outline: none;
 }
 
 .modal-actions {
-  display:flex;
-  justify-content:flex-end;
-  gap:8px;
-  margin-top:25px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 25px;
 }
 
 .cancel,
 .save {
-  padding:10px 14px;
-  font:inherit;
-  font-size:9px;
-  cursor:pointer;
+  padding: 10px 14px;
+  font: inherit;
+  font-size: 9px;
+  cursor: pointer;
 }
 
 .cancel {
-  border:1px solid var(--line);
-  background:transparent;
+  border: 1px solid var(--line);
+  background: transparent;
 }
 
 .save {
-  border:1px solid var(--ink);
-  background:var(--ink);
-  color:white;
+  border: 1px solid var(--ink);
+  background: var(--ink);
+  color: white;
 }
 
-.loading {
-  padding:35px 0;
-  color:var(--muted);
-  font-size:9px;
+.save:hover {
+  background: var(--red);
+  border-color: var(--red);
 }
 
-@media(max-width:650px) {
+/* MOBILE */
+
+@media (max-width: 650px) {
+
   main {
-    padding-top:25px;
+    padding-top: 25px;
   }
 
   header,
   .intro {
-    display:block;
+    display: block;
   }
 
   .header-date {
-    text-align:left;
-    margin-top:18px;
+    text-align: left;
+    margin-top: 18px;
   }
 
   .stats {
-    margin-top:25px;
+    margin-top: 25px;
   }
 
   .toolbar {
-    align-items:flex-start;
-    flex-direction:column;
+    align-items: flex-start;
+    flex-direction: column;
   }
 
   .task {
-    grid-template-columns:22px 1fr auto;
-    gap:10px;
+    grid-template-columns: 22px 1fr auto;
+    gap: 10px;
   }
 }
 </style>
@@ -383,18 +373,20 @@ input, select {
 <main>
 
 <header>
+
   <div>
-    <div class="kicker">arquivo nº 001 / bobuxos</div>
     <h1>to-do dos <em>bobuxos</em></h1>
   </div>
 
   <div class="header-date">
-    edição atual<br>
     <span id="date"></span>
   </div>
+
 </header>
 
+
 <section class="intro">
+
   <p>
     coisas que a gente falou que ia fazer,
     coisas que provavelmente vamos esquecer
@@ -402,6 +394,7 @@ input, select {
   </p>
 
   <div class="stats">
+
     <div class="stat">
       <strong id="total">0</strong>
       <span>coisas</span>
@@ -411,99 +404,149 @@ input, select {
       <strong id="done">0</strong>
       <span>resolvidas</span>
     </div>
-  </div>
-</section>
 
-<section class="progress">
-  <div class="progress-top">
-    <span>progresso do bobuxismo</span>
-    <span id="percent">0%</span>
   </div>
 
-  <div class="progress-line">
-    <div class="progress-fill" id="progress"></div>
-  </div>
 </section>
+
 
 <div class="toolbar">
 
   <div class="filters">
-    <button class="filter active" data-filter="all">tudo</button>
-    <button class="filter" data-filter="pending">pendentes</button>
-    <button class="filter" data-filter="done">feitas</button>
-    <button class="filter" data-filter="date">ir fazer</button>
-    <button class="filter" data-filter="buy">comprar</button>
-    <button class="filter" data-filter="watch">ver</button>
+
+    <button class="filter active" data-filter="all">
+      tudo
+    </button>
+
+    <button class="filter" data-filter="pending">
+      pendentes
+    </button>
+
+    <button class="filter" data-filter="done">
+      feitas
+    </button>
+
+    <button class="filter" data-filter="date">
+      ir fazer
+    </button>
+
+    <button class="filter" data-filter="buy">
+      comprar
+    </button>
+
+    <button class="filter" data-filter="watch">
+      ver
+    </button>
+
   </div>
 
-  <button class="add" id="add">+ adicionar coisa</button>
+  <button class="add" id="add">
+    + adicionar coisa
+  </button>
 
 </div>
 
+
 <section id="list">
-  <div class="loading">abrindo o arquivo...</div>
+
+  <div class="loading">
+    abrindo o arquivo...
+  </div>
+
 </section>
 
-<footer></footer>
-
 </main>
+
+
+<!-- MODAL -->
 
 <div class="modal-bg" id="modal">
 
   <form class="modal" id="form">
 
-    <h2 id="modalTitle">adicionar uma coisa</h2>
+    <h2 id="modalTitle">
+      adicionar uma coisa
+    </h2>
 
     <div class="field">
+
       <label>o que é?</label>
+
       <input
         id="title"
         required
         autocomplete="off"
         placeholder="ir naquele lugar que a gente falou"
       >
+
     </div>
 
+
     <div class="field">
+
       <label>categoria</label>
 
       <select id="category">
-        <option value="date">IR FAZER</option>
-        <option value="buy">COMPRAR</option>
-        <option value="watch">VER</option>
-        <option value="life">VIDA REAL</option>
+
+        <option value="date">
+          IR FAZER
+        </option>
+
+        <option value="buy">
+          COMPRAR
+        </option>
+
+        <option value="watch">
+          VER
+        </option>
+
+        <option value="life">
+          VIDA REAL
+        </option>
+
       </select>
+
     </div>
 
+
     <div class="field">
+
       <label>quando?</label>
-      <input id="when" placeholder="algum dia">
+
+      <input
+        id="when"
+        placeholder="algum dia"
+      >
+
     </div>
 
-    <div class="field">
-      <label>seu nome</label>
-      <input id="author" required placeholder="seu nome">
-    </div>
 
     <div class="modal-actions">
-      <button type="button" class="cancel" id="cancel">
+
+      <button
+        type="button"
+        class="cancel"
+        id="cancel"
+      >
         cancelar
       </button>
 
       <button class="save">
         guardar
       </button>
+
     </div>
 
   </form>
 
 </div>
 
+
 <script>
 
-/* ============================
-   CONFIGURAÇÃO DO SUPABASE
-============================ */
+/* =====================================
+   SUPABASE
+===================================== */
 
 const SUPABASE_URL =
   "https://olgqgraybbyakuskfnnf.supabase.co";
@@ -512,64 +555,90 @@ const SUPABASE_KEY =
   "sb_publishable_3PNI02QrMQzpy9qbbRrdgw_JzmsWCuH";
 
 
-/* ============================
+/* =====================================
    ESTADO
-============================ */
+===================================== */
 
 let tasks = [];
+
 let currentFilter = "all";
+
 let editingId = null;
 
 
-/* ============================
+/* =====================================
    ELEMENTOS
-============================ */
+===================================== */
 
-const list = document.getElementById("list");
-const modal = document.getElementById("modal");
-const form = document.getElementById("form");
+const list =
+  document.getElementById("list");
+
+const modal =
+  document.getElementById("modal");
+
+const form =
+  document.getElementById("form");
 
 
-/* ============================
-   REQUEST BASE
-============================ */
+/* =====================================
+   SUPABASE REQUEST
+===================================== */
 
-async function supabaseRequest(endpoint, options = {}) {
+async function supabaseRequest(
+  endpoint,
+  options = {}
+) {
 
   const response = await fetch(
     `${SUPABASE_URL}/rest/v1/${endpoint}`,
     {
+
       ...options,
 
       headers: {
+
         "apikey": SUPABASE_KEY,
-        "Authorization": `Bearer ${SUPABASE_KEY}`,
-        "Content-Type": "application/json",
-        "Prefer": options.method === "POST"
-          ? "return=representation"
-          : "return=minimal",
+
+        "Authorization":
+          `Bearer ${SUPABASE_KEY}`,
+
+        "Content-Type":
+          "application/json",
+
+        "Prefer":
+          options.method === "POST"
+            ? "return=representation"
+            : "return=minimal",
 
         ...(options.headers || {})
       }
+
     }
   );
 
+
   if (!response.ok) {
 
-    const error = await response.text();
+    const error =
+      await response.text();
 
     throw new Error(error);
   }
 
-  const text = await response.text();
 
-  return text ? JSON.parse(text) : null;
+  const text =
+    await response.text();
+
+
+  return text
+    ? JSON.parse(text)
+    : null;
 }
 
 
-/* ============================
-   CARREGAR TAREFAS
-============================ */
+/* =====================================
+   CARREGAR
+===================================== */
 
 async function loadTasks() {
 
@@ -581,31 +650,33 @@ async function loadTasks() {
 
     render();
 
-  } catch(error) {
+  } catch (error) {
 
     console.error(error);
 
     list.innerHTML = `
       <div class="loading">
         não conseguimos abrir o arquivo.<br><br>
-        confira se a tabela "tasks" foi criada no Supabase.
+        confira a tabela "tasks" no Supabase.
       </div>
     `;
+
   }
+
 }
 
 
-/* ============================
+/* =====================================
    ADICIONAR
-============================ */
+===================================== */
 
 async function addTask(data) {
 
   await supabaseRequest(
     "tasks",
     {
-      method:"POST",
-      body:JSON.stringify(data)
+      method: "POST",
+      body: JSON.stringify(data)
     }
   );
 
@@ -613,17 +684,17 @@ async function addTask(data) {
 }
 
 
-/* ============================
+/* =====================================
    EDITAR
-============================ */
+===================================== */
 
 async function updateTask(id, data) {
 
   await supabaseRequest(
     `tasks?id=eq.${id}`,
     {
-      method:"PATCH",
-      body:JSON.stringify(data)
+      method: "PATCH",
+      body: JSON.stringify(data)
     }
   );
 
@@ -631,46 +702,63 @@ async function updateTask(id, data) {
 }
 
 
-/* ============================
+/* =====================================
    APAGAR
-============================ */
+===================================== */
 
 async function deleteTask(id) {
 
-  if (!confirm("apagar essa coisa?")) return;
+  if (
+    !confirm("apagar essa coisa?")
+  ) return;
+
 
   await supabaseRequest(
     `tasks?id=eq.${id}`,
     {
-      method:"DELETE"
+      method: "DELETE"
     }
   );
+
 
   await loadTasks();
 }
 
 
-/* ============================
+/* =====================================
    RENDER
-============================ */
+===================================== */
 
 function render() {
 
-  let filtered = tasks.filter(task => {
+  let filtered =
+    tasks.filter(task => {
 
-    if (currentFilter === "pending")
-      return !task.done;
+      if (
+        currentFilter === "pending"
+      )
+        return !task.done;
 
-    if (currentFilter === "done")
-      return task.done;
 
-    if (
-      ["date","buy","watch"].includes(currentFilter)
-    )
-      return task.category === currentFilter;
+      if (
+        currentFilter === "done"
+      )
+        return task.done;
 
-    return true;
-  });
+
+      if (
+        ["date", "buy", "watch"]
+          .includes(currentFilter)
+      )
+        return (
+          task.category === currentFilter
+        );
+
+
+      return true;
+
+    });
+
 
   if (!filtered.length) {
 
@@ -683,333 +771,441 @@ function render() {
 
   } else {
 
-    list.innerHTML = filtered.map(task => {
+    list.innerHTML =
+      filtered.map(task => {
 
-      const category = {
-        date:"ir fazer",
-        buy:"comprar",
-        watch:"ver",
-        life:"vida real"
-      }[task.category] || "vida real";
+        const category = {
 
-      return `
-        <article class="task ${task.done ? "done" : ""}">
+          date: "ir fazer",
 
-          <button
-            class="checkbox"
-            onclick="toggleTask(${task.id}, ${task.done})"
-          ></button>
+          buy: "comprar",
 
-          <div>
+          watch: "ver",
 
-            <div class="task-title">
-              ${escapeHTML(task.title)}
-            </div>
+          life: "vida real"
 
-            <div class="meta">
+        }[task.category]
+        || "vida real";
 
-              <span class="category">
-                ${category}
-              </span>
 
-              <span>
-                ${escapeHTML(task.due || "sem data")}
-              </span>
+        return `
 
-              <span>
-                por ${escapeHTML(task.created_by)}
-              </span>
-
-            </div>
-
-          </div>
-
-          <div class="actions">
+          <article
+            class="task ${task.done ? "done" : ""}"
+          >
 
             <button
-              class="small-btn"
-              onclick="editTask(${task.id})"
-              title="editar"
-            >
-              ···
-            </button>
+              class="checkbox"
+              onclick="
+                toggleTask(
+                  ${task.id},
+                  ${task.done}
+                )
+              "
+              aria-label="concluir"
+            ></button>
 
-            <button
-              class="small-btn"
-              onclick="deleteTask(${task.id})"
-              title="apagar"
-            >
-              ×
-            </button>
 
-          </div>
+            <div>
 
-        </article>
-      `;
+              <div class="task-title">
+                ${escapeHTML(task.title)}
+              </div>
 
-    }).join("");
+
+              <div class="meta">
+
+                <span class="category">
+                  ${category}
+                </span>
+
+                <span>
+                  ${escapeHTML(
+                    task.due || "sem data"
+                  )}
+                </span>
+
+              </div>
+
+            </div>
+
+
+            <div class="actions">
+
+              <button
+                class="small-btn"
+                onclick="
+                  editTask(${task.id})
+                "
+                title="editar"
+              >
+                ···
+              </button>
+
+
+              <button
+                class="small-btn"
+                onclick="
+                  deleteTask(${task.id})
+                "
+                title="apagar"
+              >
+                ×
+              </button>
+
+            </div>
+
+          </article>
+
+        `;
+
+      }).join("");
+
   }
+
 
   updateStats();
 }
 
 
-/* ============================
+/* =====================================
    CONCLUIR
-============================ */
+===================================== */
 
-async function toggleTask(id, current) {
+async function toggleTask(
+  id,
+  current
+) {
 
   await updateTask(
     id,
     {
-      done:!current
+      done: !current
     }
   );
+
 }
 
 
-/* ============================
+/* =====================================
    EDITAR
-============================ */
+===================================== */
 
 function editTask(id) {
 
-  const task = tasks.find(t => t.id === id);
+  const task =
+    tasks.find(
+      t => t.id === id
+    );
+
 
   if (!task) return;
 
+
   editingId = id;
 
-  document.getElementById("modalTitle").textContent =
+
+  document.getElementById(
+    "modalTitle"
+  ).textContent =
     "editar uma coisa";
 
-  document.getElementById("title").value =
+
+  document.getElementById(
+    "title"
+  ).value =
     task.title;
 
-  document.getElementById("category").value =
+
+  document.getElementById(
+    "category"
+  ).value =
     task.category;
 
-  document.getElementById("when").value =
+
+  document.getElementById(
+    "when"
+  ).value =
     task.due || "";
 
-  document.getElementById("author").value =
-    task.created_by;
 
   modal.classList.add("open");
 
-  document.getElementById("title").focus();
+
+  document.getElementById(
+    "title"
+  ).focus();
+
 }
 
 
-/* ============================
-   STATS
-============================ */
+/* =====================================
+   ESTATÍSTICAS
+===================================== */
 
 function updateStats() {
 
-  const total = tasks.length;
+  const total =
+    tasks.length;
+
 
   const completed =
-    tasks.filter(t => t.done).length;
+    tasks.filter(
+      task => task.done
+    ).length;
 
-  const percentage =
-    total
-      ? Math.round((completed / total) * 100)
-      : 0;
 
-  document.getElementById("total")
-    .textContent = total;
+  document.getElementById(
+    "total"
+  ).textContent =
+    total;
 
-  document.getElementById("done")
-    .textContent = completed;
 
-  document.getElementById("percent")
-    .textContent = percentage + "%";
+  document.getElementById(
+    "done"
+  ).textContent =
+    completed;
 
-  document.getElementById("progress")
-    .style.width = percentage + "%";
 }
 
 
-/* ============================
-   MODAL
-============================ */
+/* =====================================
+   ABRIR MODAL
+===================================== */
 
-document.getElementById("add").onclick = () => {
+document.getElementById(
+  "add"
+).onclick = () => {
 
   editingId = null;
 
   form.reset();
 
-  document.getElementById("modalTitle")
-    .textContent = "adicionar uma coisa";
+
+  document.getElementById(
+    "modalTitle"
+  ).textContent =
+    "adicionar uma coisa";
+
 
   modal.classList.add("open");
 
-  document.getElementById("title").focus();
+
+  document.getElementById(
+    "title"
+  ).focus();
+
 };
 
 
-document.getElementById("cancel").onclick = () => {
+/* =====================================
+   FECHAR MODAL
+===================================== */
+
+document.getElementById(
+  "cancel"
+).onclick = () => {
 
   modal.classList.remove("open");
 
   editingId = null;
+
 };
 
 
 modal.onclick = event => {
 
-  if (event.target === modal) {
+  if (
+    event.target === modal
+  ) {
 
-    modal.classList.remove("open");
+    modal.classList.remove(
+      "open"
+    );
 
     editingId = null;
+
   }
+
 };
 
 
-/* ============================
-   FORM
-============================ */
+/* =====================================
+   FORMULÁRIO
+===================================== */
 
-form.onsubmit = async event => {
+form.onsubmit =
+  async event => {
 
-  event.preventDefault();
-
-  const title =
-    document.getElementById("title")
-      .value.trim();
-
-  const category =
-    document.getElementById("category")
-      .value;
-
-  const due =
-    document.getElementById("when")
-      .value.trim();
-
-  const author =
-    document.getElementById("author")
-      .value.trim();
+    event.preventDefault();
 
 
-  try {
+    const title =
+      document.getElementById(
+        "title"
+      ).value.trim();
 
-    if (editingId) {
 
-      await updateTask(
-        editingId,
-        {
-          title,
-          category,
-          due,
-          created_by:author
-        }
+    const category =
+      document.getElementById(
+        "category"
+      ).value;
+
+
+    const due =
+      document.getElementById(
+        "when"
+      ).value.trim();
+
+
+    try {
+
+      if (editingId) {
+
+        await updateTask(
+          editingId,
+          {
+            title,
+            category,
+            due
+          }
+        );
+
+      } else {
+
+        await addTask(
+          {
+            title,
+            category,
+            due,
+            done: false
+          }
+        );
+
+      }
+
+
+      form.reset();
+
+      modal.classList.remove(
+        "open"
       );
 
-    } else {
+      editingId = null;
 
-      await addTask(
-        {
-          title,
-          category,
-          due,
-          created_by:author,
-          done:false
-        }
+
+    } catch (error) {
+
+      console.error(error);
+
+      alert(
+        "não deu pra guardar. veja o console."
       );
+
     }
 
-    form.reset();
-
-    modal.classList.remove("open");
-
-    editingId = null;
-
-  } catch(error) {
-
-    console.error(error);
-
-    alert(
-      "não deu pra guardar. veja o console."
-    );
-  }
-};
+  };
 
 
-/* ============================
+/* =====================================
    FILTROS
-============================ */
+===================================== */
 
-document.querySelectorAll(".filter")
+document
+  .querySelectorAll(".filter")
   .forEach(button => {
 
     button.onclick = () => {
 
       document
         .querySelectorAll(".filter")
-        .forEach(b =>
-          b.classList.remove("active")
+        .forEach(
+          b =>
+            b.classList
+              .remove("active")
         );
 
-      button.classList.add("active");
+
+      button.classList.add(
+        "active"
+      );
+
 
       currentFilter =
         button.dataset.filter;
 
+
       render();
+
     };
 
   });
 
 
-/* ============================
-   SEGURANÇA DE TEXTO
-============================ */
+/* =====================================
+   ESCAPAR HTML
+===================================== */
 
 function escapeHTML(value) {
 
   return String(value ?? "")
-    .replaceAll("&","&amp;")
-    .replaceAll("<","&lt;")
-    .replaceAll(">","&gt;")
-    .replaceAll('"',"&quot;")
-    .replaceAll("'","&#039;");
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll(
+      '"',
+      "&quot;"
+    )
+    .replaceAll(
+      "'",
+      "&#039;"
+    );
+
 }
 
 
-/* ============================
+/* =====================================
    DATA
-============================ */
+===================================== */
 
-const now = new Date();
-
-document.getElementById("date")
-  .textContent =
-    String(now.getDate()).padStart(2,"0")
-    + "."
-    + String(now.getMonth()+1).padStart(2,"0")
-    + "."
-    + String(now.getFullYear()).slice(-2);
+const now =
+  new Date();
 
 
-/* ============================
-   ATUALIZAÇÃO AUTOMÁTICA
-============================ */
+document.getElementById(
+  "date"
+).textContent =
 
-/*
-   Enquanto vocês dois estiverem com o site aberto,
-   verifica o banco periodicamente.
-*/
+  String(
+    now.getDate()
+  ).padStart(2, "0")
 
-setInterval(loadTasks, 5000);
+  + "."
+
+  + String(
+    now.getMonth() + 1
+  ).padStart(2, "0")
+
+  + "."
+
+  + String(
+    now.getFullYear()
+  ).slice(-2);
 
 
-/* ============================
-   COMEÇAR
-============================ */
+/* =====================================
+   ATUALIZA A CADA 5 SEGUNDOS
+===================================== */
+
+setInterval(
+  loadTasks,
+  5000
+);
+
+
+/* =====================================
+   INICIAR
+===================================== */
 
 loadTasks();
 
